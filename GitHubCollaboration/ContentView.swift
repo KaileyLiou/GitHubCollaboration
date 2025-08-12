@@ -6,41 +6,67 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
     var body: some View {
         NavigationStack { //start nav stack
-            
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
-                NavigationLink(destination: CentralPark()) {
-                    Text("Central Park")
-                        .font(.headline)
-                        .foregroundColor(Color.black)
-                }//end central park nav link
-                NavigationLink(destination: AstoriaPark()) {
-                    Text("Astoria Park")
-                        .font(.headline)
-                        .foregroundColor(Color.black)
-                } //end astoria park nav link
-                NavigationLink(destination: West_Side_Highway()) {
-                    Text("West Side Highway")
-                        .font(.headline)
-                        .foregroundColor(Color.black)
-                } //end west side highway nav link
-                NavigationLink(destination: Seaport()) {
-                    Text("Seaport")
-                        .font(.headline)
-                        .foregroundColor(Color.black)
-                } //end seaport nav link
-            }//end vstack
-            .padding()
+            ScrollView{
+                VStack {
+                    Text("Reliable Routes")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    NavigationLink(destination: CentralPark()) {
+                        ZStack{
+                            Image("centralpark")
+                                .resizable(resizingMode: .tile)
+                            Text("Central Park")
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                                
+                            }
+                    }//end central park nav link
+                    
+                    NavigationLink(destination: AstoriaPark()) {
+                        ZStack{
+                            Image("astoriapark")
+                                .resizable(resizingMode: .tile)
+                                .aspectRatio(contentMode: .fill)
+                            Text("Astoria Park")
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                            .foregroundColor(Color.white)}
+                    } //end astoria park nav link
+                    
+                    NavigationLink(destination: West_Side_Highway()) {
+                        ZStack{
+                            Image("westsidehighway")
+                                .resizable(resizingMode: .stretch)
+                                .aspectRatio(contentMode: .fill)
+                            Text("West Side Highway")
+                                .font(.headline)
+                            .foregroundColor(Color.pink)}
+                    } //end west side highway nav link
+                    
+                    NavigationLink(destination: Seaport()) {
+                        ZStack{
+                            Image("seaport")
+                                .resizable(capInsets: EdgeInsets(top: 0.0, leading: 0.0, bottom: 200.0, trailing: 0.0), resizingMode: .tile)
+                                .aspectRatio(contentMode: .fill)
+                            
+                            
+                            Text("Seaport")
+                                .font(.headline)
+                            .foregroundColor(Color.black)}//end zstack
+                    } //end seaport nav link
+                    
+                }//end vstack
+                .padding()
+            }//end scrollview
         } //end nav stack
+        
     }
 }
+
 
 #Preview {
     ContentView()
