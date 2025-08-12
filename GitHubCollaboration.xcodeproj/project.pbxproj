@@ -6,12 +6,7 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		BD15CA952E4B7B4B00EE1537 /* CentralPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15CA942E4B7B4B00EE1537 /* CentralPark.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		BD15CA942E4B7B4B00EE1537 /* CentralPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralPark.swift; sourceTree = "<group>"; };
 		BDC3A8AC2E4A2BFB00AC20FA /* GitHubCollaboration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubCollaboration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -37,7 +32,6 @@
 		BDC3A8A32E4A2BFB00AC20FA = {
 			isa = PBXGroup;
 			children = (
-				BD15CA942E4B7B4B00EE1537 /* CentralPark.swift */,
 				BDC3A8AE2E4A2BFB00AC20FA /* GitHubCollaboration */,
 				BDC3A8AD2E4A2BFB00AC20FA /* Products */,
 			);
@@ -125,7 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD15CA952E4B7B4B00EE1537 /* CentralPark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
