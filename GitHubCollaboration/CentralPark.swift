@@ -10,11 +10,12 @@ import SwiftUI
 struct CentralPark: View {
     var body: some View {
         
-        VStack{
+        VStack (alignment: .leading){
             HStack{
                 Text("Central Park")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .padding(.leading)
                 Spacer()
                 VStack{
                     Text("★★★★★")
@@ -23,8 +24,14 @@ struct CentralPark: View {
                 }//end stars vstack
             }//end HStack
             Spacer()
+                .frame(height:50)
+            Text ("Notes")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            
         }//end vstack
-        .padding()
+        Spacer ()
         
     } //end var body
 } //end struct central park
