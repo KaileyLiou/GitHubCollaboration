@@ -14,11 +14,26 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-            Text("Change 1")
-            Text("Change 2")
-            Text ("Change 3")
-            Text("Change 4")
-            Text("New Change - Maddy")
+            NavigationLink(destination: CentralPark()) {
+                Text("Central Park")
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+            }//end central park nav link
+            NavigationLink(destination: AstoriaPark()) {
+                Text("Astoria Park")
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+            } //end astoria park nav link
+            NavigationLink(destination: West_Side_Highway()) {
+                Text("West Side Highway")
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+            } //end west side highway nav link
+            NavigationLink(destination: Seaport()) {
+                Text("Seaport")
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+            } //end seaport nav link
         }
         .padding()
     }
