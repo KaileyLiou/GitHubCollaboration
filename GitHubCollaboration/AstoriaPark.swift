@@ -12,8 +12,8 @@ struct AstoriaPark: View {
         VStack {
             HStack {
                 Text("Astoria Park")
-                    .font(.system(size: 40))
-                    .fontWeight(.black)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                 Spacer()
                 Text("★★★★")
                     .font(.system(size:30))
