@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct West_Side_Highway: View {
+    
+    @State private var isBookmarked = false
+
     var body: some View {
         ScrollView{
             VStack (alignment: .leading){
@@ -67,6 +70,16 @@ struct West_Side_Highway: View {
                 } //end of HStack
                 
             }//end of VStack
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(isBookmarked ? "bookmark-filled" : "bookmark-unfilled")
+                        .resizable()
+                        .frame(width: 25, height: 27)
+                        .onTapGesture {
+                            isBookmarked.toggle()
+                        }
+                }
+            }
             Spacer ()
         }//end of scroll
     } //end of body
