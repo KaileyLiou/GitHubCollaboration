@@ -9,9 +9,16 @@ import SwiftUI
 
 struct Bookmarks: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        ScrollView{
+            VStack{
+                Text("My Bookmarks")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding()
+            }
+        }
+    } //end of body
+} //end of struct
 
 #Preview {
     Bookmarks()
