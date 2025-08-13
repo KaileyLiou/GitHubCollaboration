@@ -39,12 +39,12 @@ struct ContentView: View {
                     
                     NavigationLink(destination: West_Side_Highway()) {
                         ZStack{
-                            Image("westsidehighway")
+                            Image("WSH")
                                 .resizable(resizingMode: .stretch)
                                 .aspectRatio(contentMode: .fill)
                             Text("West Side Highway")
-                                .font(.headline)
-                            .foregroundColor(Color.pink)}
+                            .font(.headline)
+                            .foregroundColor(Color.white)}
                     } //end west side highway nav link
                     
                     NavigationLink(destination: Seaport()) {
@@ -56,7 +56,7 @@ struct ContentView: View {
                             
                             Text("Seaport")
                                 .font(.headline)
-                            .foregroundColor(Color.black)}//end zstack
+                            .foregroundColor(Color.white)}//end zstack
                     } //end seaport nav link
                     
                 }//end vstack
