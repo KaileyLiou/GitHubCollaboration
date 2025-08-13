@@ -81,23 +81,22 @@ struct ContentView: View {
                     } //end seaport nav link
                     
                 }//end vstack
-                .padding()
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        HStack {
-                            Text("Reliable Routes")
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                            NavigationLink(destination: Bookmarks()) {
-                                Image("bookmark-filled")
-                                    .resizable()
-                                    .frame(width: 25, height: 27)
-                            }
-                        }
-                        .padding()
-                    }
-                }
             }//end scrollview
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Reliable Routes")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        NavigationLink(destination: Bookmarks()) {
+                            Image("bookmark-filled")
+                                .resizable()
+                                .frame(width: 25, height: 27)
+                        }
+                    }
+                    .padding()
+                }
+            }
         } //end nav stack
         
     }
