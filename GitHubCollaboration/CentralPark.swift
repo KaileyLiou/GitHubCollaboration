@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CentralPark: View {
+    
+    @State private var isBookmarked = false
+    
     var body: some View {
         ScrollView {
             VStack (alignment: .leading){
@@ -61,6 +64,16 @@ struct CentralPark: View {
                     .cornerRadius(20)
                     .padding ()
             }//end of VStack
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(isBookmarked ? "bookmark-filled" : "bookmark-unfilled")
+                        .resizable()
+                        .frame(width: 25, height: 27)
+                        .onTapGesture {
+                            isBookmarked.toggle()
+                        }
+                }
+            }
         }
         Spacer ()
     

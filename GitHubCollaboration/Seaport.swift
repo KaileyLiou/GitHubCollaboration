@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Seaport: View {
+    
+    @State private var isBookmarked = false
+
     var body: some View {
         ScrollView{
             VStack (alignment: .leading){
@@ -68,6 +71,16 @@ struct Seaport: View {
                 
                 
             }//end of VStack
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(isBookmarked ? "bookmark-filled" : "bookmark-unfilled")
+                        .resizable()
+                        .frame(width: 25, height: 27)
+                        .onTapGesture {
+                            isBookmarked.toggle()
+                        }
+                }
+            }
             Spacer ()
         }//end of scroll
     } //end of body
