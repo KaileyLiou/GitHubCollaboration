@@ -11,12 +11,6 @@ struct ContentView: View {
         NavigationStack { //start nav stack
             ScrollView{
                 VStack {
-                    Text("Reliable Routes")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
-                    .padding()
-                    
                     HStack {
                         Text("Explore")
                             .font(.title)
@@ -88,6 +82,20 @@ struct ContentView: View {
                     
                 }//end vstack
                 .padding()
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Reliable Routes")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            NavigationLink(destination: Bookmarks()) {
+                                Image("bookmark-filled")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                            }
+                        }
+                    }
+                }
             }//end scrollview
         } //end nav stack
         
