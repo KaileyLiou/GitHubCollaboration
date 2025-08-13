@@ -14,6 +14,14 @@ struct ContentView: View {
                     Text("Reliable Routes")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                    
+                    .padding()
+                    
+                    Text("Explore")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.leading)
+                    
                     NavigationLink(destination: CentralPark()) {
                         ZStack{
                             Image("centralpark")
