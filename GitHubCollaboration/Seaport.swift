@@ -25,10 +25,15 @@ struct Seaport: View {
                     
                     Spacer()//pushes left
                     
+                
                 }//end of HStack
                 
+                Link("Click here for map view", destination: URL(string: "https://onthegomap.com/s/uaddig1j")!)
+                //end of link
+                .padding()
+                
                 Spacer()//pushes up //WSH up
-                    .frame(height:50)
+                    .frame(height:3)
                 Text ("Notes")
                     .font(.title)
                     .fontWeight(.bold)
