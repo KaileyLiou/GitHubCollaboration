@@ -9,32 +9,66 @@ import SwiftUI
 
 struct West_Side_Highway: View {
     var body: some View {
-        VStack (alignment: .leading){
-            HStack {
-               
-                Text("West Side Highway")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.leading)
-                Spacer() //between texts
-                Text ("★★★★")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.yellow)
-
-                Spacer()//pushes left
+        ScrollView{
+            VStack (alignment: .leading){
+                HStack {
+                    
+                    Text("West Side Highway")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.leading)
+                    Spacer() //between texts
+                    Text ("★★★★")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.yellow)
+                    
+                    Spacer()//pushes left
+                    
+                }//end of HStack
                 
-            }//end of HStack
-            
-            Spacer()//pushes up //WSH up
-                .frame(height:50)
-            Text ("Notes")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding()
-            
-        }//end of VStack
-        Spacer ()
-    
+                Link("Click here for map view", destination: URL(string: "https://onthegomap.com/s/4nfthcn0")!)
+                //end of link
+                    .padding()
+                
+                Spacer()//pushes up //WSH up
+                    .frame(height:3)
+                
+                Text ("Notes")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding()
+                
+                Text (" - Beautiful at sunset !")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .padding([.leading, .bottom], 2.0)
+                Text (" - Spacious, but can be crowded at busy times")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .padding([.leading, .bottom], 2.0)
+                Text(" - No incline")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .padding([.leading, .bottom], 2.0)
+                
+                HStack{
+                    Image("vertical")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20)
+                        .padding ()
+                    Spacer ()
+                    Image("WSHmap")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20)
+                        .padding ()
+                    
+                } //end of HStack
+                
+            }//end of VStack
+            Spacer ()
+        }//end of scroll
     } //end of body
     
 }//end of struct
