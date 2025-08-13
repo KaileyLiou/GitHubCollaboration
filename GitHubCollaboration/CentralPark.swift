@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CentralPark: View {
     
-    @State private var isBookmarked = false
+    @AppStorage("isBookmarkedCentralPark") private var isBookmarked = false
     
     var body: some View {
         ScrollView {
