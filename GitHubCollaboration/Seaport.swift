@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Seaport: View {
     
-    @State private var isBookmarked = false
+    @AppStorage("isBookmarkedSeaport") private var isBookmarked = false
 
     var body: some View {
         ScrollView{

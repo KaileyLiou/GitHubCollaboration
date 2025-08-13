@@ -9,7 +9,7 @@ import SwiftUI
 
 struct West_Side_Highway: View {
     
-    @State private var isBookmarked = false
+    @AppStorage("isBookmarkedWSH") private var isBookmarked = false
 
     var body: some View {
         ScrollView{
