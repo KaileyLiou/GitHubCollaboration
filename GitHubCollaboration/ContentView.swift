@@ -91,9 +91,10 @@ struct ContentView: View {
                             NavigationLink(destination: Bookmarks()) {
                                 Image("bookmark-filled")
                                     .resizable()
-                                    .frame(width: 30, height: 30)
+                                    .frame(width: 25, height: 27)
                             }
                         }
+                        .padding()
                     }
                 }
             }//end scrollview
