@@ -17,10 +17,16 @@ struct ContentView: View {
                     
                     .padding()
                     
-                    Text("Explore")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
+                    HStack {
+                        Text("Explore")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                        
+                        Image("run")
+                            .resizable()
+                            .frame(width: 40, height: 35)
+                    }
                     
                     NavigationLink(destination: CentralPark()) {
                         ZStack{
