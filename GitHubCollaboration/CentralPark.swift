@@ -71,7 +71,6 @@ struct CentralPark: View {
                         .frame(width: 25, height: 27)
                         .onTapGesture {
                             isBookmarked.toggle()
-                            Bookmarks(myBookmarks: myBookmarks.append("Central Park"))
                         }
                 }
             }

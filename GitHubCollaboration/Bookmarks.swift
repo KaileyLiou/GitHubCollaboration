@@ -5,10 +5,11 @@
 //  Created by Scholar on 8/13/25.
 //
 
+
 import SwiftUI
 
 struct Bookmarks: View {
-    var myBookmarks: [String] = []
+    @EnvironmentObject var marks: [String] = []
     var body: some View {
         ScrollView{
             VStack{
@@ -16,11 +17,15 @@ struct Bookmarks: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
-                
             }//end vstack
         }
     } //end of body
 } //end of struct
+
+func addMark(place: String) {
+    marks.append(place)
+}
+
 
 #Preview {
     Bookmarks()
