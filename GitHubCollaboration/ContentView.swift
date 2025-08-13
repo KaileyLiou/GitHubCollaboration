@@ -17,9 +17,13 @@ struct ContentView: View {
                     NavigationLink(destination: CentralPark()) {
                         ZStack{
                             Image("centralpark")
-                                .resizable(resizingMode: .tile)
+                                .resizable()
+                                .frame(width: 370, height: 170)
+                                .cornerRadius(15)
+                                .clipped()
+                            
                             Text("Central Park")
-                                .font(.headline)
+                                .font(.largeTitle)
                                 .fontWeight(.heavy)
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 
@@ -29,34 +33,43 @@ struct ContentView: View {
                     NavigationLink(destination: AstoriaPark()) {
                         ZStack{
                             Image("astoriapark")
-                                .resizable(resizingMode: .tile)
-                                .aspectRatio(contentMode: .fill)
+                                .resizable()
+                                .frame(width: 370, height: 170)
+                                .cornerRadius(15)
+                                .clipped()
+                            
                             Text("Astoria Park")
-                                .font(.headline)
+                                .font(.largeTitle)
                                 .fontWeight(.heavy)
-                            .foregroundColor(Color.white)}
+                                .foregroundColor(Color.white)}
                     } //end astoria park nav link
                     
                     NavigationLink(destination: West_Side_Highway()) {
                         ZStack{
                             Image("WSH")
-                                .resizable(resizingMode: .stretch)
-                                .aspectRatio(contentMode: .fill)
+                                .resizable()
+                                .frame(width: 370, height: 170)
+                                .cornerRadius(15)
+                                .clipped()
+                            
                             Text("West Side Highway")
-                            .font(.headline)
-                            .foregroundColor(Color.white)}
+                                .font(.largeTitle)
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.white)}
                     } //end west side highway nav link
                     
                     NavigationLink(destination: Seaport()) {
                         ZStack{
                             Image("seaport")
-                                .resizable(capInsets: EdgeInsets(top: 0.0, leading: 0.0, bottom: 200.0, trailing: 0.0), resizingMode: .tile)
-                                .aspectRatio(contentMode: .fill)
-                            
+                                .resizable()
+                                .frame(width: 370, height: 170)
+                                .cornerRadius(15)
+                                .clipped()
                             
                             Text("Seaport")
-                                .font(.headline)
-                            .foregroundColor(Color.white)}//end zstack
+                                .font(.largeTitle)
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.white)}//end zstack
                     } //end seaport nav link
                     
                 }//end vstack
