@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Bookmarks: View {
+    var myBookmarks: [String] = []
     var body: some View {
         ScrollView{
             VStack{
@@ -15,7 +16,8 @@ struct Bookmarks: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
-            }
+                
+            }//end vstack
         }
     } //end of body
 } //end of struct
