@@ -29,7 +29,7 @@ struct AstoriaPark: View {
                     
                     Spacer() //between texts
                     
-                    Text ("★★★★")
+                    Text ("★★★★★")
                         .font(.largeTitle)
                         .foregroundColor(Color.yellow)
                     
@@ -43,11 +43,6 @@ struct AstoriaPark: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
-                Text("- Great nature views!")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 2)
                 Text("- Very loud when approaching RFK bridge.")
                     .font(.title3)
                     .fontWeight(.bold)
@@ -58,7 +53,7 @@ struct AstoriaPark: View {
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 2)
-                Text("- Has a track!")
+                Text("- Safe at night!")
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
