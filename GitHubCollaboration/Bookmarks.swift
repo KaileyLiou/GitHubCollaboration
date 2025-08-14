@@ -7,24 +7,29 @@
 
 
 import SwiftUI
+import Foundation
+import Combine
+
+
+class bookMarks: ObservableObject {
+    @Published var marks: [String] = ["no bookmarks added"]
+}
 
 struct Bookmarks: View {
-    @EnvironmentObject var marks: [String] = []
+    @StateObject private var Marks = bookMarks()
     var body: some View {
-        ScrollView{
             VStack{
                 Text("My Bookmarks")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
+                List(Marks.marks, id: \.self) {mark in Text(mark)
+                    .multilineTextAlignment(.center)}
             }//end vstack
-        }
     } //end of body
+
 } //end of struct
 
-func addMark(place: String) {
-    marks.append(place)
-}
 
 
 #Preview {

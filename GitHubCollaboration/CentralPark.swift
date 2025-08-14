@@ -10,6 +10,7 @@ import SwiftUI
 struct CentralPark: View {
     
     @State private var isBookmarked = false
+    @ObservedObject var Marks = bookMarks()
     
     var body: some View {
         ScrollView {
@@ -71,9 +72,13 @@ struct CentralPark: View {
                         .frame(width: 25, height: 27)
                         .onTapGesture {
                             isBookmarked.toggle()
+                            if isBookmarked {if !$Marks.marks.contains("Central Park") {
+                            Marks.marks.append("Central Park")
+                            }}
                         }
                 }
-            }
+            }//end toolbar
+           // if isBookmarked {Marks.append("Central Park")}
         }
         Spacer ()
     
