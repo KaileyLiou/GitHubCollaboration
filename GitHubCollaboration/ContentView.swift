@@ -7,6 +7,8 @@
 
 import SwiftUI
 struct ContentView: View {
+    @StateObject var bookmarkManager = BookmarkManager()
+    
     var body: some View {
         NavigationStack { //start nav stack
             ScrollView{
@@ -22,7 +24,7 @@ struct ContentView: View {
                             .frame(width: 40, height: 35)
                     }
                     
-                    NavigationLink(destination: CentralPark()) {
+                    NavigationLink(destination: CentralPark(bookmarkManager: bookmarkManager)) {
                         ZStack{
                             Image("centralpark")
                                 .resizable()
@@ -38,7 +40,7 @@ struct ContentView: View {
                             }
                     }//end central park nav link
                     
-                    NavigationLink(destination: AstoriaPark()) {
+                    NavigationLink(destination: AstoriaPark(bookmarkManager:bookmarkManager)) {
                         ZStack{
                             Image("astoriapark")
                                 .resizable()
@@ -52,7 +54,7 @@ struct ContentView: View {
                                 .foregroundColor(Color.white)}
                     } //end astoria park nav link
                     
-                    NavigationLink(destination: West_Side_Highway()) {
+                    NavigationLink(destination: West_Side_Highway(bookmarkManager: bookmarkManager)) {
                         ZStack{
                             Image("WSH")
                                 .resizable()
@@ -66,7 +68,7 @@ struct ContentView: View {
                                 .foregroundColor(Color.white)}
                     } //end west side highway nav link
                     
-                    NavigationLink(destination: Seaport()) {
+                    NavigationLink(destination: Seaport(bookmarkManager: bookmarkManager)) {
                         ZStack{
                             Image("seaport")
                                 .resizable()
@@ -81,20 +83,21 @@ struct ContentView: View {
                     } //end seaport nav link
                     
                 }//end vstack
-            }//end scrollview
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Reliable Routes")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                        NavigationLink(destination: Bookmarks()) {
-                            Image("bookmark-filled")
-                                .resizable()
-                                .frame(width: 25, height: 27)
+                .padding()
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Reliable Routes")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            NavigationLink(destination: Bookmarks(bookmarkManager:bookmarkManager)) {
+                                Image("bookmark-filled")
+                                    .resizable()
+                                    .frame(width: 25, height: 27)
+                            }
                         }
                     }
-                    .padding()
+//                    .padding()
                 }
             }
         } //end nav stack

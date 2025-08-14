@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct Seaport: View {
+    @ObservedObject var bookmarkManager: BookmarkManager
     
-    @AppStorage("isBookmarkedSeaport") private var isBookmarked = false
-
+    var isBookmarked: Bool {
+        bookmarkManager.bookmarks.contains ("Seaport")
+    }
+    
     var body: some View {
         ScrollView{
             VStack (alignment: .leading){
@@ -81,15 +84,21 @@ struct Seaport: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
+                            if !isBookmarked{
+                                bookmarkManager.bookmarks.append("Seaport")
+                            } else {
+                                bookmarkManager.bookmarks.removeAll {
+                                    $0 == "Seaport"}
+                            }
+                        
                         }
-                }
-            }
+                }//end of nav bar
+            }//end of toolbar
             Spacer ()
         }//end of scroll
     } //end of body
 } //end of struct
 
 #Preview {
-    Seaport()
+    Seaport(bookmarkManager:BookmarkManager())
 }

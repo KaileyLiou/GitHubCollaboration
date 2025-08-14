@@ -9,8 +9,11 @@ import SwiftUI
 
 struct AstoriaPark: View {
     
-    @AppStorage("isBookmarkedAstoria") private var isBookmarked = false
+    @ObservedObject var bookmarkManager: BookmarkManager
 
+    var isBookmarked:Bool{
+        bookmarkManager.bookmarks.contains("Astoria Park")
+    }
     var body: some View {
         ScrollView {
             VStack (alignment: .leading){
@@ -35,42 +38,38 @@ struct AstoriaPark: View {
                 }//end of HStack
                 
                 Spacer()//pushes up //WSH up
-                    .frame(height:50)
-                Text ("Notes:")
+                    
+                Text ("Notes")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
                 Text("- Great nature views!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 2)
+                    .padding([.leading, .bottom], 2.0)
                 Text("- Very loud when approaching RFK bridge.")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 2)
+                    .padding([.leading, .bottom], 2.0)
                 Text("- Always lively with lots of people!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 2)
+                    .padding([.leading, .bottom], 2.0)
                 Text("- Has a track!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 2)
+                    .padding([.leading, .bottom], 2.0)
                 Image("astoriapark")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(20)
-                    .padding()
+                    .padding ()
                 Spacer()
                 Image("astoriapark2")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(20)
-                    .padding()
+                    .padding ()
             }//end of VStack
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -78,10 +77,14 @@ struct AstoriaPark: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
-                        }
-                }
-            }
+                            if isBookmarked {
+                                bookmarkManager.bookmarks.removeAll { $0 == "Astoria Park"}
+                            } else {
+                                    bookmarkManager.bookmarks.append ("Astoria Park")
+                                } //end of else
+                        }//end of tapgesture
+                }//end of toolbarItem
+            }//end of toolbar
         }
         Spacer ()
     
@@ -89,5 +92,5 @@ struct AstoriaPark: View {
 } //end of struct
 
 #Preview {
-    AstoriaPark()
+    AstoriaPark(bookmarkManager: BookmarkManager())
 }
