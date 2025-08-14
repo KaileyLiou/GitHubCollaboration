@@ -9,7 +9,10 @@ import SwiftUI
 
 struct West_Side_Highway: View {
     
-    @State private var isBookmarked = false
+    @ObservedObject var bookmarkManager: BookmarkManager
+    var isBookmarked: Bool{
+        bookmarkManager.bookmarks.contains("West Side Highway")
+    }
 
     var body: some View {
         ScrollView{
@@ -36,36 +39,40 @@ struct West_Side_Highway: View {
                 Spacer()//pushes up //WSH up
                     .frame(height:3)
                 
-                Text ("Notes")
+                Text("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
-                
-                Text (" - Beautiful at sunset !")
+                Text(" - Beautiful at sunset !")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
-                Text (" - Spacious, but can be crowded at busy times")
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
+                Text(" - Spacious, but can be crowded at busy times")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text(" - No incline")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 
                 HStack{
                     Image("vertical")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
-                        .padding ()
+                        .padding()
+                        .frame(width: 200, height: 320)
                     Spacer ()
                     Image("WSHmap")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
-                        .padding ()
+                        .padding()
+                        .frame(width: 200, height: 310)
                     
                 } //end of HStack
                 
@@ -76,7 +83,11 @@ struct West_Side_Highway: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
+                            if isBookmarked{
+                                bookmarkManager.bookmarks.removeAll { $0 == "West Side Highway"}
+                            } else {
+                                bookmarkManager.bookmarks.append("West Side Highway")
+                            }
                         }
                 }
             }
@@ -89,5 +100,5 @@ struct West_Side_Highway: View {
 
 
 #Preview {
-    West_Side_Highway()
+    West_Side_Highway(bookmarkManager: BookmarkManager())
 }

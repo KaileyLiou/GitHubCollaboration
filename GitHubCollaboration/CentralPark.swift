@@ -9,8 +9,15 @@ import SwiftUI
 
 struct CentralPark: View {
     
+<<<<<<< HEAD
     @State private var isBookmarked = false
     @ObservedObject var Marks = bookMarks()
+=======
+    @ObservedObject var bookmarkManager: BookmarkManager
+    var isBookmarked: Bool {
+        bookmarkManager.bookmarks.contains ("Central Park")
+    }
+>>>>>>> main
     
     var body: some View {
         ScrollView {
@@ -37,22 +44,25 @@ struct CentralPark: View {
                 
                 Spacer()//pushes up //WSH up
                     .frame(height:50)
-                Text ("Notes")
+                Text ("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
                 Text("- Good variety; trees and water.")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text("- Reservoir is cramped, but flat!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text("- Bike path is spacious, steep, and hilly!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Image("centralpark")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -71,6 +81,7 @@ struct CentralPark: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
+<<<<<<< HEAD
                             isBookmarked.toggle()
                             if isBookmarked {if !$Marks.marks.contains("Central Park") {
                             Marks.marks.append("Central Park")
@@ -79,6 +90,16 @@ struct CentralPark: View {
                 }
             }//end toolbar
            // if isBookmarked {Marks.append("Central Park")}
+=======
+                            if isBookmarked {
+                                bookmarkManager.bookmarks.removeAll {$0 == "Central Park"}
+                            } else {
+                                bookmarkManager.bookmarks.append("Central Park")
+                            } //end of else
+                        } //end of tap
+                }//end of tool item
+            }//end of toolbar
+>>>>>>> main
         }
         Spacer ()
     
@@ -86,5 +107,5 @@ struct CentralPark: View {
 } //end of struct
 
 #Preview {
-    CentralPark()
+    CentralPark(bookmarkManager:BookmarkManager())
 }

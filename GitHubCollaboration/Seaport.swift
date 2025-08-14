@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct Seaport: View {
+    @ObservedObject var bookmarkManager: BookmarkManager
     
-    @State private var isBookmarked = false
-
+    var isBookmarked: Bool {
+        bookmarkManager.bookmarks.contains ("Seaport")
+    }
+    
     var body: some View {
         ScrollView{
             VStack (alignment: .leading){
@@ -37,36 +40,40 @@ struct Seaport: View {
                 
                 Spacer()//pushes up //WSH up
                     .frame(height:3)
-                Text ("Notes")
+                Text ("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
                 Text (" - Pretty views of Manhattan and Brooklyn Bridge")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text (" - Along the water, fairly flat")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text(" - Some parts are less populated + a bit sketchy")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 
                 HStack{
                     Image("seaport1")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
-                        .padding ()
-                    Spacer ()
-                    Image("mapSeaport")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(20)
-                    .padding ()
+                        .padding()
+                        .frame(width: 200, height: 320)
 
+                    Image("mapSeaport")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20)
+                        .padding()
+                        .frame(width: 200, height: 320)
                 }
                 
                 
@@ -77,15 +84,21 @@ struct Seaport: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
+                            if !isBookmarked{
+                                bookmarkManager.bookmarks.append("Seaport")
+                            } else {
+                                bookmarkManager.bookmarks.removeAll {
+                                    $0 == "Seaport"}
+                            }
+                        
                         }
-                }
-            }
+                }//end of nav bar
+            }//end of toolbar
             Spacer ()
         }//end of scroll
     } //end of body
 } //end of struct
 
 #Preview {
-    Seaport()
+    Seaport(bookmarkManager:BookmarkManager())
 }
