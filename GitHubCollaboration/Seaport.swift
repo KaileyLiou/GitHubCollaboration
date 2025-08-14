@@ -62,14 +62,15 @@ struct Seaport: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
-                        .padding ()
-                    Spacer ()
-                    Image("mapSeaport")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(20)
-                    .padding ()
+                        .padding()
+                        .frame(width: 200, height: 320)
 
+                    Image("mapSeaport")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20)
+                        .padding()
+                        .frame(width: 200, height: 320)
                 }
                 
                 

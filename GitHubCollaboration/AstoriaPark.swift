@@ -64,13 +64,13 @@ struct AstoriaPark: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(20)
-                    .padding ()
+                    .padding()
                 Spacer()
                 Image("astoriapark2")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(20)
-                    .padding ()
+                    .padding()
             }//end of VStack
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

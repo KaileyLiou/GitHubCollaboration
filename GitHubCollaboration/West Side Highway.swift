@@ -36,17 +36,16 @@ struct West_Side_Highway: View {
                 Spacer()//pushes up //WSH up
                     .frame(height:3)
                 
-                Text ("Notes:")
+                Text("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
-                
-                Text (" - Beautiful at sunset !")
+                Text(" - Beautiful at sunset !")
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 2)
-                Text (" - Spacious, but can be crowded at busy times")
+                Text(" - Spacious, but can be crowded at busy times")
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
@@ -62,13 +61,15 @@ struct West_Side_Highway: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
-                        .padding ()
+                        .padding()
+                        .frame(width: 200, height: 320)
                     Spacer ()
                     Image("WSHmap")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
-                        .padding ()
+                        .padding()
+                        .frame(width: 200, height: 310)
                     
                 } //end of HStack
                 
