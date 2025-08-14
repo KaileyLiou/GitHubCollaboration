@@ -9,7 +9,10 @@ import SwiftUI
 
 struct West_Side_Highway: View {
     
-    @AppStorage("isBookmarkedWSH") private var isBookmarked = false
+    @ObservedObject var bookmarkManager: BookmarkManager
+    var isBookmarked: Bool{
+        bookmarkManager.bookmarks.contains("West Side Highway")
+    }
 
     var body: some View {
         ScrollView{
@@ -76,7 +79,11 @@ struct West_Side_Highway: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
+                            if isBookmarked{
+                                bookmarkManager.bookmarks.removeAll { $0 == "West Side Highway"}
+                            } else {
+                                bookmarkManager.bookmarks.append("West Side Highway")
+                            }
                         }
                 }
             }
@@ -89,5 +96,5 @@ struct West_Side_Highway: View {
 
 
 #Preview {
-    West_Side_Highway()
+    West_Side_Highway(bookmarkManager: BookmarkManager())
 }

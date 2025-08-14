@@ -9,7 +9,10 @@ import SwiftUI
 
 struct CentralPark: View {
     
-    @AppStorage("isBookmarkedCentralPark") private var isBookmarked = false
+    @ObservedObject var bookmarkManager: BookmarkManager
+    var isBookmarked: Bool {
+        bookmarkManager.bookmarks.contains ("Central Park")
+    }
     
     var body: some View {
         ScrollView {
@@ -70,10 +73,14 @@ struct CentralPark: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
-                        }
-                }
-            }
+                            if isBookmarked {
+                                bookmarkManager.bookmarks.removeAll {$0 == "Central Park"}
+                            } else {
+                                bookmarkManager.bookmarks.append("Central Park")
+                            } //end of else
+                        } //end of tap
+                }//end of tool item
+            }//end of toolbar
         }
         Spacer ()
     
@@ -81,5 +88,5 @@ struct CentralPark: View {
 } //end of struct
 
 #Preview {
-    CentralPark()
+    CentralPark(bookmarkManager:BookmarkManager())
 }

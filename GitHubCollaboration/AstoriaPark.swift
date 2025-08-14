@@ -9,8 +9,11 @@ import SwiftUI
 
 struct AstoriaPark: View {
     
-    @AppStorage("isBookmarkedAstoria") private var isBookmarked = false
+    @ObservedObject var bookmarkManager: BookmarkManager
 
+    var isBookmarked:Bool{
+        bookmarkManager.bookmarks.contains("Astoria Park")
+    }
     var body: some View {
         ScrollView {
             VStack (alignment: .leading){
@@ -35,7 +38,7 @@ struct AstoriaPark: View {
                 }//end of HStack
                 
                 Spacer()//pushes up //WSH up
-                    .frame(height:50)
+                    
                 Text ("Notes")
                     .font(.title)
                     .fontWeight(.bold)
@@ -74,10 +77,14 @@ struct AstoriaPark: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            isBookmarked.toggle()
-                        }
-                }
-            }
+                            if isBookmarked {
+                                bookmarkManager.bookmarks.removeAll { $0 == "Astoria Park"}
+                            } else {
+                                    bookmarkManager.bookmarks.append ("Astoria Park")
+                                } //end of else
+                        }//end of tapgesture
+                }//end of toolbarItem
+            }//end of toolbar
         }
         Spacer ()
     
@@ -85,5 +92,5 @@ struct AstoriaPark: View {
 } //end of struct
 
 #Preview {
-    AstoriaPark()
+    AstoriaPark(bookmarkManager: BookmarkManager())
 }
