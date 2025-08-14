@@ -97,7 +97,7 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .padding()
+//                    .padding()
                 }
             }
         } //end nav stack
