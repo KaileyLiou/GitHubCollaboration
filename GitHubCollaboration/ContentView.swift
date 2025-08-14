@@ -13,15 +13,14 @@ struct ContentView: View {
         NavigationStack { //start nav stack
             ScrollView{
                 VStack {
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 160, height: 110)
                     HStack {
                         Text("Explore")
                             .font(.title)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
-                        
-                        Image("run")
-                            .resizable()
-                            .frame(width: 40, height: 35)
                     }
                     
                     NavigationLink(destination: CentralPark(bookmarkManager: bookmarkManager)) {
