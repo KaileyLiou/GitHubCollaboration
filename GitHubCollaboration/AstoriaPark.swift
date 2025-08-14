@@ -38,38 +38,42 @@ struct AstoriaPark: View {
                 }//end of HStack
                 
                 Spacer()//pushes up //WSH up
-                    
-                Text ("Notes")
+                    .frame(height:50)
+                Text ("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
                 Text("- Great nature views!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text("- Very loud when approaching RFK bridge.")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text("- Always lively with lots of people!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Text("- Has a track!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .padding([.leading, .bottom], 2.0)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 2)
                 Image("astoriapark")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(20)
-                    .padding ()
+                    .padding()
                 Spacer()
                 Image("astoriapark2")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(20)
-                    .padding ()
+                    .padding()
             }//end of VStack
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -77,14 +81,10 @@ struct AstoriaPark: View {
                         .resizable()
                         .frame(width: 25, height: 27)
                         .onTapGesture {
-                            if isBookmarked {
-                                bookmarkManager.bookmarks.removeAll { $0 == "Astoria Park"}
-                            } else {
-                                    bookmarkManager.bookmarks.append ("Astoria Park")
-                                } //end of else
-                        }//end of tapgesture
-                }//end of toolbarItem
-            }//end of toolbar
+                            isBookmarked.toggle()
+                        }
+                }
+            }
         }
         Spacer ()
     
@@ -92,5 +92,5 @@ struct AstoriaPark: View {
 } //end of struct
 
 #Preview {
-    AstoriaPark(bookmarkManager: BookmarkManager())
+    AstoriaPark()
 }

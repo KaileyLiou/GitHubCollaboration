@@ -96,10 +96,10 @@ struct ContentView: View {
                                     .frame(width: 25, height: 27)
                             }
                         }
-                        .padding()
                     }
+                    .padding()
                 }
-            }//end scrollview
+            }
         } //end nav stack
         
     }
