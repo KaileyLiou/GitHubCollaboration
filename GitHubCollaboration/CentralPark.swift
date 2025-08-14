@@ -29,7 +29,7 @@ struct CentralPark: View {
                     
                     Spacer() //between texts
                     
-                    Text ("★★★★★")
+                    Text ("★★★★")
                         .font(.largeTitle)
                         .foregroundColor(Color.yellow)
                     
@@ -43,17 +43,17 @@ struct CentralPark: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
-                Text("- Good variety; trees and water.")
+                Text("- Reservoir is cramped, but flat.")
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 2)
-                Text("- Reservoir is cramped, but flat!")
+                Text("- Busy at all times.")
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 2)
-                Text("- Bike path is spacious, steep, and hilly!")
+                Text("- Bike path is spacious, beware of cyclists!")
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, 20)
