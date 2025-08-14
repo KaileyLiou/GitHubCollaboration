@@ -36,7 +36,7 @@ struct CentralPark: View {
                 
                 Spacer()//pushes up //WSH up
                     .frame(height:50)
-                Text ("Notes")
+                Text ("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
