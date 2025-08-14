@@ -36,7 +36,7 @@ struct West_Side_Highway: View {
                 Spacer()//pushes up //WSH up
                     .frame(height:3)
                 
-                Text ("Notes")
+                Text ("Notes:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
